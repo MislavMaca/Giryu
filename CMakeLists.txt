@@ -1,28 +1,16 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.10)
+
+# Set C and C++ compilers explicitly
+set(CMAKE_C_COMPILER gcc)
+set(CMAKE_CXX_COMPILER g++)
+
 project(Giryu)
 
-# Add C++11 standard
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Add executable
+add_executable(main src/main.cpp)  # Specify source file explicitly
 
+# Specify the location of header files
+target_include_directories(main PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-# Source files
-set(SOURCES
-    src/main.cpp
-    # Add more source files as needed
-)
-
-# Add executable target
-add_executable(${PROJECT_NAME} ${SOURCES})
-
-# Include directories
-# include_directories(...)
-
-# Link libraries if needed
-# target_link_libraries(${PROJECT_NAME} ...)
-
-# Compiler options if needed
-# target_compile_options(${PROJECT_NAME} ...)
-
-# Install target if needed
-# install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+# Set output directory for executable
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/Build)
