@@ -1,0 +1,42 @@
+Title: Giryu
+
+Description:
+-Giryu is a console-based game where you control your kingdom, building structures, improving resources, and training armies to defend against and attack enemies. The ultimate goal is to clear all outposts on the map.
+
+Gameplay Overview:
+-2D Graphics
+-Text-Based combat
+-Mouse-driven gameplay where most of the interaction comes in the form of decision making
+-Player interacts with the game via a console interface.
+-Three main sections: Resources, City, and Map.
+-Player would be offered a choice of actions he can perform in the console
+
+Resources:
+-Contains resource nodes providing different income types for upgrades and troop training.
+-Resources include wood, clay, iron crops and troop upkeep.
+
+City:
+-Buildings with various functionalities and benefits.
+-Upgradable buildings to increase effectiveness.
+
+Map:
+-10x10 grid
+-Overview of the kingdom and enemy outposts.
+
+-Each outpost and kingdom occupies one grid piece.
+-Outposts have varying difficulties affecting troop composition.
+
+Troops and Buildings:
+-Troops and buildings have upkeep costs subtracted from resource production.
+-All buildings upgradable and offer new functionalities and troops as a result, on top of a increase in stats
+
+Game Features:
+-Scouts to send to outposts for strength assessment and strategic decision-making.
+-Outposts send raiding parties after being attacked or successfully scouted.
+
+
+Possible Additions:
+-Randomly generated map.
+-Save functionality.
+-Ability to create a second city.
+-Random composition of resource amounts on grid tiles, affecting outpost army composition and secondary cities.

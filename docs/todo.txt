@@ -1,0 +1,37 @@
+To-Do List for Developing "Giryu" Game Using OpenGL:
+
+//1. Set Up Development Environment:
+//   - Install suitable IDE for C++ development.
+//   - Configure OpenGL libraries and headers.
+
+2. Learn OpenGL Basics:
+   - Familiarize with initializing OpenGL context, creating windows, and drawing basic shapes and text.
+
+3. Design Game Architecture:
+   - Plan main game loop, input handling, rendering, and game state management.
+   - Define classes and data structures for game entities.
+
+4. Implement Core Gameplay Mechanics:
+   - Manage resources, building structures, and interacting with the game world.
+
+5. Create User Interface:
+   - Design and implement UI elements for menus, text, and information display.
+   - Use OpenGL for rendering UI elements and handle user input.
+
+6. Develop Game Map:
+   - Implement the game map as a grid of cells with player's starting position, resource nodes, and enemy outposts.
+
+7. Implement Combat and Interaction:
+   - Develop combat mechanics, including attacking enemy outposts and defending against attacks.
+   - Handle interactions such as gathering resources, upgrading buildings, and training troops.
+
+8. Test and Iterate:
+   - Test frequently to identify and fix bugs, optimize performance, and refine gameplay mechanics.
+   - Iterate based on feedback and testing results.
+
+9. Add Optional Features:
+   - Consider adding randomly generated maps, save functionality, or ability to create a second city.
+
+10. Polish and Finish:
+    - Add final touches such as sound effects, music, and visual effects.
+    - Polish UI, improve usability, and ensure game stability.
