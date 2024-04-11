@@ -2,16 +2,11 @@
 
 // Default constructor
 Archer::Archer()
-    : Troop() {}
+    : Troop(10, 5, 5, 5, 20, 10, "Archer") {}
 
-// Constructor with parameters
-Archer::Archer(int woodCost, int ironCost, int clayCost, int cropCost, int attack, int defense)
-    : Troop(woodCost, ironCost, clayCost, cropCost, attack, defense, "Archer") {}
+// Parameterized constructor
+Archer::Archer(int woodCost, int ironCost, int clayCost, int cropCost, int attack, int defense, const std::string& troopType)
+    : Troop(woodCost, ironCost, clayCost, cropCost, attack, defense, troopType) {}
 
 // Destructor
 Archer::~Archer() {}
-
-// Example of a special ability for archers
-void Archer::specialAbility() {
-    // Add implementation for archer's special ability here
-}

@@ -10,7 +10,8 @@ project(Giryu)
 add_executable(main 
     src/main.cpp 
     src/Models/Troop.cpp 
-    src/Models/Archer.cpp 
+    src/Models/Archer.cpp
+    src/Models/Swordsman.cpp 
     src/Models/Barracks.cpp 
     src/Models/Blacksmith.cpp
     src/Models/Building.cpp  # Include Building.cpp

@@ -1,28 +1,31 @@
-#include "Barracks.hpp"
 #include "Blacksmith.hpp"
+#include "Barracks.hpp" // Include Barracks header to access its methods
 
-
-Blacksmith::Blacksmith(int woodCost, int ironCost, int clayCost, int cropCost, Barracks &barracks)
+Blacksmith::Blacksmith(int woodCost, int ironCost, int clayCost, int cropCost, Barracks& barracks)
     : Building(woodCost, ironCost, clayCost, cropCost), barracks(barracks) {}
 
-void Blacksmith::upgradeTroopAttack(const std::string &troopType)
+void Blacksmith::upgradeTroopAttack(const std::string& troopType)
 {
-    // Find the troop type in the barracks vector
-    for (auto &troop : barracks.troops)
-    { // Access troops vector from Barracks reference
+    // Get troops vector from Barracks
+    std::vector<Troop*>& troops = barracks.getTroops();
+
+    // Loop through troops and upgrade attack of troops of the specified type
+    for (Troop* troop : troops)
+    {
         if (troop->getTroopType() == troopType)
         {
-            // Increment the attack level
-            int currentAttackLevel = troop->getAttackLevel();
-            troop->setAttackLevel(currentAttackLevel + 1);
-
-            // Increment the attack stat by 1 for each level
-            int newAttack = troop->getAttack() + 1;
+            // Increase attack
+            int newAttack = troop->getAttack() + 2; // Assuming a fixed increase of 5
             troop->setAttack(newAttack);
 
-            std::cout << "Troop type upgraded: " << troopType << std::endl;
-            return;
+            int newAttackLevel =troop->getAttackLevel() + 1;
+            troop->setAttackLevel(newAttackLevel);
         }
     }
-    std::cout << "Troop type not found in barracks" << std::endl;
+}
+
+std::vector<Troop*>& Blacksmith::getTroops()
+{
+    // Delegate to Barracks' getTroops method
+    return barracks.getTroops();
 }

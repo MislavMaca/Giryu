@@ -6,14 +6,12 @@
 class Archer : public Troop {
 public:
     // Constructors
-    Archer();
-    Archer(int woodCost, int ironCost, int clayCost, int cropCost, int attack, int defense);
+    Archer(); // Default constructor
+    Archer(int woodCost, int ironCost, int clayCost, int cropCost, int attack, int defense, const std::string& troopType); // Parameterized constructor
 
     // Destructor
-    ~Archer();
+    virtual ~Archer();
 
-    // Additional methods specific to Archer class
-    void specialAbility(); // Example of a special ability for archers
 };
 
 #endif // ARCHER_HPP

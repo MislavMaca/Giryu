@@ -3,11 +3,11 @@
 
 #include "Building.hpp"
 #include "Troop.hpp"
-#include <vector>
 #include <string>
-#include <iostream>
+#include <vector>
 
-class Barracks; // Forward declaration of Barracks class
+// Forward declaration of Barracks class
+class Barracks;
 
 class Blacksmith : public Building {
 public:
@@ -16,6 +16,9 @@ public:
 
     // Method to upgrade the attack of troops of a certain type
     void upgradeTroopAttack(const std::string& troopType);
+
+    // Method to get troops vector from Barracks
+    std::vector<Troop*>& getTroops();
 
 protected:
     Barracks& barracks; // Reference to Barracks

@@ -4,32 +4,42 @@
 #include "Models/Archer.hpp"
 #include "Models/Barracks.hpp"
 #include "Models/Blacksmith.hpp"
+#include "Models/Swordsman.hpp"
 
 int main()
 {
-    // Create an Archer troop
-    Archer archer(10, 5, 3, 2, 15, 10);
-
     // Create a Barracks
     Barracks barracks(20, 15, 12, 5);
 
-    // Recruit the Archer troop in the Barracks
-    barracks.recruitTroop(&archer);
+    // Create 30 Archers and recruit them into the Barracks
+    for (int i = 0; i < 30; ++i) {
+        barracks.recruitTroop(new Archer);
+    }
+
+    // Create 100 Swordsmen and recruit them into the Barracks
+    for (int i = 0; i < 100; ++i) {
+        barracks.recruitTroop(new Swordsman);
+    }
 
     // Create a Blacksmith
-    Blacksmith blacksmith(30, 25, 20, 15);
+    Blacksmith blacksmith(30, 25, 20, 15, barracks);
 
-    std::cout << "Archer stats before upgrade:" << std::endl;
-    std::cout << "Attack: " << archer.getAttack() << std::endl;
-    std::cout << "Defense: " << archer.getDefense() << std::endl;
-
-    // Upgrade the attack of the Archer troop using the Blacksmith
+    // Upgrade the attack of the Archer troops using the Blacksmith
     blacksmith.upgradeTroopAttack("Archer");
 
-    // Print the stats of the Archer troop after the upgrade
-    std::cout << "Archer stats after upgrade:" << std::endl;
-    std::cout << "Attack: " << archer.getAttack() << std::endl;
-    std::cout << "Defense: " << archer.getDefense() << std::endl;
+    // Print the stats of all Archers after the upgrade
+    const std::vector<Troop*>& troops = barracks.getTroops();
+    for (Troop* troop : troops) {
+        if (dynamic_cast<Archer*>(troop)) {
+            Archer* archer = dynamic_cast<Archer*>(troop);
+            std::cout << "Archer stats after upgrade:" << std::endl;
+            std::cout << "Attack: " << archer->getAttack() << std::endl;
+            std::cout << "Defense: " << archer->getDefense() << std::endl;
+            std::cout << "AttackLevel: " << archer->getAttackLevel() << std::endl;
+        }
+    }
+
+    // Clean up memory in the Barracks destructor
 
     return 0;
 }
