@@ -3,6 +3,7 @@
 
 #include "Building.hpp"
 #include "Troop.hpp"
+#include "Barracks.hpp"
 #include <string>
 #include <vector>
 

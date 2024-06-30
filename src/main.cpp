@@ -15,6 +15,8 @@ int main() {
     // Start the game in the main menu
     game.initialize();
 
+
+
     while (true) {
         std::string action;
 

@@ -19,6 +19,7 @@ add_executable(main
     src/Models/Giryu.cpp
     src/Models/BaseException.cpp
     src/Models/InvalidActionException.cpp
+    src/Models/Enemy.cpp
 )
 
 # Specify the location of header files

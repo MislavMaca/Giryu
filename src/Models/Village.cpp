@@ -29,3 +29,23 @@ const Building* Village::getBuilding(int index) const {
     }
     return nullptr; // Return nullptr if index is out of bounds
 }
+
+Barracks* Village::getBarracks() const {
+    for (Building* building : buildings) {
+        Barracks* barracks = dynamic_cast<Barracks*>(building);
+        if (barracks != nullptr) {
+            return barracks;
+        }
+    }
+    return nullptr;
+}
+
+Blacksmith* Village::getBlacksmith() const {
+    for (Building* building : buildings) {
+        Blacksmith* blacksmith = dynamic_cast<Blacksmith*>(building);
+        if (blacksmith != nullptr) {
+            return blacksmith;
+        }
+    }
+    return nullptr;
+}

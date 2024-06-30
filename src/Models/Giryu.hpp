@@ -5,9 +5,17 @@
 #include <string>
 #include <vector>
 #include <numeric>
+#include <stdexcept>
+
 #include "DataProcessor.hpp"
 #include "InvalidActionException.hpp"
 #include "Village.hpp"
+#include "Building.hpp"
+#include "Barracks.hpp"
+#include "Blacksmith.hpp"
+#include "Archer.hpp"
+#include "Swordsman.hpp"
+#include "Enemy.hpp"
 
 class GiryuGame {
 public:
@@ -18,6 +26,12 @@ public:
     void exit();
     void handleAction(const std::string& action);
     void invalid();
+    void build();
+    void upgradeBuilding();
+    void trainTroop();
+    void upgradeTroop();
+    void fight();
+
     std::string getCurrentState() const; // Getter for current game state
 
     Village& getVillage() { return myVillage; }
@@ -27,6 +41,11 @@ private:
         MainMenu,
         Running,
         Showcase,
+        Build,
+        UpgradeBuilding,
+        TrainTroop,
+        UpgradeTroop,
+        Fight,
         Exiting
     };
 
@@ -40,9 +59,18 @@ private:
 
     void showMainMenu();
     void showRunningMenu();
+    void showBuildMenu();
+    void showUpgradeBuildingMenu();
+    void showTrainTroopMenu();
+    void showUpgradeTroopMenu();
+    void showFightMenu();
+    void attackEnemy();
 
-    // Village instance
+    double divide(double,double);
+    int ageCheck(int);
+    
     Village myVillage;
+    Enemy* enemy;
 };
 
 #endif // GIRYU_HPP

@@ -2,7 +2,9 @@
 #define VILLAGE_HPP
 
 #include <vector>
-#include "Building.hpp" // Include necessary headers for Building class
+#include "Building.hpp"
+#include "Barracks.hpp" 
+#include "Blacksmith.hpp"
 
 class Village
 {
@@ -15,6 +17,9 @@ public:
     void removeBuilding(int index);
     int getNumBuildings() const;
     const Building *getBuilding(int index) const;
+
+    Barracks* getBarracks() const;
+    Blacksmith* getBlacksmith() const;
 
 private:
     std::vector<Building *> buildings;

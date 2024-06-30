@@ -18,6 +18,8 @@ public:
     void setClayCost(int clayCost);
     void setCropCost(int cropCost);
 
+    virtual ~Building() {}
+
 private:
     int woodCost;
     int ironCost;
