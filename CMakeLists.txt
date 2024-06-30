@@ -14,7 +14,10 @@ add_executable(main
     src/Models/Swordsman.cpp 
     src/Models/Barracks.cpp 
     src/Models/Blacksmith.cpp
-    src/Models/Building.cpp  # Include Building.cpp
+    src/Models/Building.cpp  
+    src/Models/Giryu.cpp
+    src/Models/BaseException.cpp
+    src/Models/InvalidActionException.cpp
 )
 
 # Specify the location of header files
