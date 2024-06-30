@@ -7,22 +7,29 @@
 #include "Models/Blacksmith.hpp"
 #include "Models/Swordsman.hpp"
 #include "Models/Giryu.hpp"
+#include "Models/Village.hpp"
 
-int main()
-{
+int main() {
     GiryuGame game;
 
-    while (true)
-    {
+    // Start the game in the main menu
+    game.initialize();
+
+    while (true) {
         std::string action;
-        std::cout << "Welcome to Giryu" << std::endl;
-        std::cout << "Choose your action by typing" << std::endl;
-        std::cout << "1. Start" << std::endl;
-        std::cout << "2. Showcase" << std::endl;
-        std::cout << "3. Exit" << std::endl;
 
         std::cin >> action;
-        game.handleAction(action);
+
+        try {
+            game.handleAction(action); // Process user action
+        } catch (InvalidActionException& e) {
+            std::cerr << "Invalid action: " << e.what() << std::endl;
+        }
+
+        // Check if the game is exiting to break the loop
+        if (game.getCurrentState() == "Exiting") {
+            break;
+        }
     }
 
     return 0;

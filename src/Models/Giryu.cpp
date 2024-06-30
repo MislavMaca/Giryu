@@ -1,8 +1,34 @@
-#include "giryu.hpp"
+#include "Giryu.hpp"
+
+GiryuGame::GiryuGame() : currentState(GameState::MainMenu), myVillage() {}
+
+void GiryuGame::initialize() {
+    currentState = GameState::MainMenu;
+    showMainMenu();
+}
 
 void GiryuGame::start() {
     std::cout << "Starting the game..." << std::endl;
-    // Add logic for starting the game
+    currentState = GameState::Running;
+    showRunningMenu();
+}
+
+void GiryuGame::showMainMenu() {
+    std::cout << "Choose your action:" << std::endl;
+    std::cout << "1. Start" << std::endl;
+    std::cout << "2. Showcase" << std::endl;
+    std::cout << "3. Exit" << std::endl;
+}
+
+void GiryuGame::showRunningMenu() {
+    std::cout << "Choose a action:" << std::endl;
+    std::cout << "1. Build" << std::endl;
+    std::cout << "2. Upgrade building" << std::endl;
+    std::cout << "3. Train troops" << std::endl;
+    std::cout << "4. Upgrade troops" << std::endl;
+    std::cout << "5. Check troop status" << std::endl;
+    std::cout << "6. Attack" << std::endl;
+    std::cout << "7. Go back" << std::endl;
 }
 
 void GiryuGame::showcase() {
@@ -40,43 +66,67 @@ void GiryuGame::showcase() {
 
 void GiryuGame::exit() {
     std::cout << "Exiting the game. Goodbye!" << std::endl;
+    currentState = GameState::Exiting;
 }
 
 void GiryuGame::invalid() {
-    std::string errorMessage = "Invalid action. Please type 'Start' or '1' to start the game, 'Showcase' or '2' to showcase, or 'Exit' or '3' to exit.";
+    std::string errorMessage = "Invalid action. Please choose a valid option.";
     throw InvalidActionException(errorMessage);
 }
 
 void GiryuGame::handleAction(const std::string& action) {
-    ActionType type = getActionType(action);
-
-    switch (type) {
-        case ActionType::Start:
+    if (currentState == GameState::MainMenu) {
+        if (action == "1" || action == "Start") {
             start();
-            break;
-        case ActionType::Exit:
-            exit();
-            break;
-        case ActionType::Showcase:
+        } else if (action == "2" || action == "Showcase") {
             showcase();
-            break;
-        case ActionType::Invalid:
+        } else if (action == "3" || action == "Exit") {
+            exit();
+        } else {
             invalid();
-            break;
-    }
-}
-
-GiryuGame::ActionType GiryuGame::getActionType(const std::string& action) {
-    auto it = actionMap.find(action);
-    if (it != actionMap.end()) {
-        return it->second;
-    } else {
-        return ActionType::Invalid;
-    }
+        }
+    } else if (currentState == GameState::Running) {
+        if (action == "1" || action == "Build") {
+            std::cout << "Building a..." << std::endl;    
+        } else if (action == "2" || action == "Upgrade building") {
+            std::cout << "Building a..." << std::endl;
+        } else if (action == "3" || action == "Train troops") {
+            std::cout << "Building a..." << std::endl;
+        } else if (action == "4" || action == "Upgrade troops") { 
+            std::cout << "Building a..." << std::endl;
+        } else if (action == "5" || action == "Check troop status") {
+            std::cout << "Building a..." << std::endl;
+        } else if (action == "6" || action == "Attack") {
+            std::cout << "Building a..." << std::endl;
+        } else if (action == "7" || action == "Go back"){
+            initialize();
+        } else {
+            invalid();
+        }
+    } // Add more conditions for other states if needed
 }
 
 template <typename T>
 T GiryuGame::processData(const std::vector<T>& data) {
     T result = std::accumulate(data.begin(), data.end(), T{});
     return result;
+}
+
+template <typename T1, typename T2>
+void GiryuGame::displayPair(const T1& first, const T2& second) {
+    std::cout << "First: " << first << " Second: " << second << std::endl;
+}
+
+std::string GiryuGame::getCurrentState() const {
+    switch (currentState) {
+        case GameState::MainMenu:
+            return "MainMenu";
+        case GameState::Running:
+            return "Running";
+        case GameState::Showcase:
+            return "Showcase";
+        case GameState::Exiting:
+            return "Exiting";
+    }
+    return "Unknown";
 }

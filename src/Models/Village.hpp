@@ -1,6 +1,8 @@
-#include <vector>
+#ifndef VILLAGE_HPP
+#define VILLAGE_HPP
 
-class Building;
+#include <vector>
+#include "Building.hpp" // Include necessary headers for Building class
 
 class Village
 {
@@ -17,3 +19,5 @@ public:
 private:
     std::vector<Building *> buildings;
 };
+
+#endif // VILLAGE_HPP

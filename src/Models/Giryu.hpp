@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <map>
 #include <vector>
 #include <numeric>
 #include "DataProcessor.hpp"
@@ -12,44 +11,38 @@
 
 class GiryuGame {
 public:
+    GiryuGame(); // Constructor to initialize game state
+    void initialize();
     void start();
     void showcase();
     void exit();
     void handleAction(const std::string& action);
     void invalid();
+    std::string getCurrentState() const; // Getter for current game state
+
+    Village& getVillage() { return myVillage; }
 
 private:
-    enum class ActionType {
-        Start,
-        Exit,
+    enum class GameState {
+        MainMenu,
+        Running,
         Showcase,
-        BuildBarracks,
-        ManageBuildings,
-        Invalid
+        Exiting
     };
 
-    std::map<std::string, ActionType> actionMap = {
-        {"Start", ActionType::Start},
-        {"1", ActionType::Start},
-        {"Showcase", ActionType::Showcase},
-        {"2", ActionType::Showcase},
-        {"Exit", ActionType::Exit},
-        {"3", ActionType::Exit}
-    };
-
-    ActionType getActionType(const std::string& action);
+    GameState currentState; // Current state of the game
 
     template <typename T>
     T processData(const std::vector<T>& data);
 
     template <typename T1, typename T2>
-    void displayPair(const T1& first, const T2& second); 
+    void displayPair(const T1& first, const T2& second);
+
+    void showMainMenu();
+    void showRunningMenu();
+
+    // Village instance
+    Village myVillage;
 };
-
-
-template <typename T1, typename T2>
-void GiryuGame::displayPair(const T1& first, const T2& second) {
-    std::cout << "First: " << first << " Second: " << second << std::endl;
-}
 
 #endif // GIRYU_HPP

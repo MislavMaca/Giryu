@@ -9,6 +9,7 @@ project(Giryu)
 # Add all source files to the executable
 add_executable(main 
     src/main.cpp 
+    src/Models/Village.cpp
     src/Models/Troop.cpp 
     src/Models/Archer.cpp
     src/Models/Swordsman.cpp 
