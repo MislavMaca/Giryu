@@ -17,14 +17,15 @@
 #include "Swordsman.hpp"
 #include "Enemy.hpp"
 
-class GiryuGame {
+class GiryuGame
+{
 public:
-    GiryuGame(); // Constructor to initialize game state
+    GiryuGame();
     void initialize();
     void start();
     void showcase();
     void exit();
-    void handleAction(const std::string& action);
+    void handleAction(const std::string &action);
     void invalid();
     void build();
     void upgradeBuilding();
@@ -32,12 +33,13 @@ public:
     void upgradeTroop();
     void fight();
 
-    std::string getCurrentState() const; // Getter for current game state
+    std::string getCurrentState() const;
 
-    Village& getVillage() { return myVillage; }
+    Village &getVillage() { return myVillage; }
 
 private:
-    enum class GameState {
+    enum class GameState
+    {
         MainMenu,
         Running,
         Showcase,
@@ -49,13 +51,13 @@ private:
         Exiting
     };
 
-    GameState currentState; // Current state of the game
+    GameState currentState;
 
     template <typename T>
-    T processData(const std::vector<T>& data);
+    T processData(const std::vector<T> &data);
 
     template <typename T1, typename T2>
-    void displayPair(const T1& first, const T2& second);
+    void displayPair(const T1 &first, const T2 &second);
 
     void showMainMenu();
     void showRunningMenu();
@@ -66,11 +68,11 @@ private:
     void showFightMenu();
     void attackEnemy();
 
-    double divide(double,double);
+    double divide(double, double);
     int ageCheck(int);
-    
+
     Village myVillage;
-    Enemy* enemy;
+    Enemy *enemy;
 };
 
-#endif // GIRYU_HPP
+#endif

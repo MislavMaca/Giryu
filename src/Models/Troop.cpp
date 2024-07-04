@@ -1,104 +1,121 @@
 #include "Troop.hpp"
 
-// Default constructor
 Troop::Troop()
     : woodCost(0), ironCost(0), clayCost(0), cropCost(0), attack(0), defense(0),
       carryCapacity(0), upkeep(0), attackLevel(0), defenseLevel(0) {}
 
-// Constructor with parameters
-Troop::Troop(int woodCost, int ironCost, int clayCost, int cropCost, int attack, int defense, const std::string& troopType)
+Troop::Troop(int woodCost, int ironCost, int clayCost, int cropCost, int attack, int defense, const std::string &troopType)
     : woodCost(woodCost), ironCost(ironCost), clayCost(clayCost), cropCost(cropCost),
       attack(attack), defense(defense), carryCapacity(0), upkeep(0), attackLevel(0), defenseLevel(0), troopType(troopType) {}
 
-// Pure virtual destructor
 Troop::~Troop() {}
 
-// Getter methods
-int Troop::getWoodCost() const {
+int Troop::getWoodCost() const
+{
     return woodCost;
 }
 
-int Troop::getIronCost() const {
+int Troop::getIronCost() const
+{
     return ironCost;
 }
 
-int Troop::getClayCost() const {
+int Troop::getClayCost() const
+{
     return clayCost;
 }
 
-int Troop::getCropCost() const {
+int Troop::getCropCost() const
+{
     return cropCost;
 }
 
-int Troop::getAttack() const {
+int Troop::getAttack() const
+{
     return attack;
 }
 
-int Troop::getDefense() const {
+int Troop::getDefense() const
+{
     return defense;
 }
 
-int Troop::getCarryCapacity() const {
+int Troop::getCarryCapacity() const
+{
     return carryCapacity;
 }
 
-int Troop::getUpkeep() const {
+int Troop::getUpkeep() const
+{
     return upkeep;
 }
 
-int Troop::getAttackLevel() const {
+int Troop::getAttackLevel() const
+{
     return attackLevel;
 }
 
-int Troop::getDefenseLevel() const {
+int Troop::getDefenseLevel() const
+{
     return defenseLevel;
 }
 
-const std::string& Troop::getTroopType() const {
+const std::string &Troop::getTroopType() const
+{
     return troopType;
 }
 
-// Setter methods
-void Troop::setWoodCost(int woodCost) {
+void Troop::setWoodCost(int woodCost)
+{
     this->woodCost = woodCost;
 }
 
-void Troop::setIronCost(int ironCost) {
+void Troop::setIronCost(int ironCost)
+{
     this->ironCost = ironCost;
 }
 
-void Troop::setClayCost(int clayCost) {
+void Troop::setClayCost(int clayCost)
+{
     this->clayCost = clayCost;
 }
 
-void Troop::setCropCost(int cropCost) {
+void Troop::setCropCost(int cropCost)
+{
     this->cropCost = cropCost;
 }
 
-void Troop::setAttack(int attack) {
+void Troop::setAttack(int attack)
+{
     this->attack = attack;
 }
 
-void Troop::setDefense(int defense) {
+void Troop::setDefense(int defense)
+{
     this->defense = defense;
 }
 
-void Troop::setCarryCapacity(int carryCapacity) {
+void Troop::setCarryCapacity(int carryCapacity)
+{
     this->carryCapacity = carryCapacity;
 }
 
-void Troop::setUpkeep(int upkeep) {
+void Troop::setUpkeep(int upkeep)
+{
     this->upkeep = upkeep;
 }
 
-void Troop::setAttackLevel(int attackLevel) {
+void Troop::setAttackLevel(int attackLevel)
+{
     this->attackLevel = attackLevel;
 }
 
-void Troop::setDefenseLevel(int defenseLevel) {
+void Troop::setDefenseLevel(int defenseLevel)
+{
     this->defenseLevel = defenseLevel;
 }
 
-void Troop::setTroopType(const std::string& troopType) {
+void Troop::setTroopType(const std::string &troopType)
+{
     this->troopType = troopType;
 }

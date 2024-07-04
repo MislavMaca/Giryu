@@ -4,13 +4,14 @@
 #include <exception>
 #include <string>
 
-class BaseException : public std::exception {
+class BaseException : public std::exception
+{
 public:
-    explicit BaseException(const std::string& message);
-    virtual const char* what() const noexcept override;
+    explicit BaseException(const std::string &message);
+    virtual const char *what() const noexcept override;
 
 protected:
     std::string errorMessage;
 };
 
-#endif // BASE_EXCEPTION_HPP
+#endif

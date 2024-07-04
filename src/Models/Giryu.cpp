@@ -251,7 +251,6 @@ void GiryuGame::handleAction(const std::string &action)
                 Archer *firstArcher = nullptr;
                 Swordsman *firstSwordsman = nullptr;
 
-                // Count the archers and swordsmen, and find the first of each type
                 for (Troop *troop : troops)
                 {
                     if (Archer *archer = dynamic_cast<Archer *>(troop))
@@ -272,7 +271,6 @@ void GiryuGame::handleAction(const std::string &action)
                     }
                 }
 
-                // Display archer stats
                 if (archerCount > 0 && firstArcher != nullptr)
                 {
                     std::cout << "Total number of Archers: " << archerCount << std::endl;
@@ -286,7 +284,6 @@ void GiryuGame::handleAction(const std::string &action)
                     std::cout << "No Archers available to check status." << std::endl;
                 }
 
-                // Display swordsman stats
                 if (swordsmanCount > 0 && firstSwordsman != nullptr)
                 {
                     std::cout << "Total number of Swordsmen: " << swordsmanCount << std::endl;
@@ -395,7 +392,7 @@ void GiryuGame::handleAction(const std::string &action)
             {
                 for (int i = 0; i < 10; ++i)
                 {
-                    Swordsman *swordsman = new Swordsman(10, 5, 3, 2, 7, 3, "Swordsman");
+                    Swordsman *swordsman = new Swordsman(10, 5, 3, 2, 3, 7, "Swordsman");
                     barracks->recruitTroop(swordsman);
                 }
                 std::cout << "10 Swordsmen trained!" << std::endl;
@@ -504,23 +501,22 @@ std::string GiryuGame::getCurrentState() const
 
 void GiryuGame::attackEnemy()
 {
-    // Retrieve the barracks
     Barracks *barracks = myVillage.getBarracks();
     if (barracks == nullptr)
     {
         std::cout << "No Barracks available to gather troops for an attack." << std::endl;
-        return;
+        std::cout << "Without a means of making troops the fight was lost from the start" << std::endl;
+        exit();
     }
 
-    // Retrieve the troops
     std::vector<Troop *> &troops = barracks->getTroops();
     if (troops.empty())
     {
         std::cout << "No troops available to attack the enemy." << std::endl;
-        return;
+        std::cout << "Try training some troops in your next life" << std::endl;
+        exit();
     }
 
-    // Calculate the total attack and defense of all troops
     int totalAttack = 0;
     int totalDefense = 0;
     for (Troop *troop : troops)
@@ -529,7 +525,6 @@ void GiryuGame::attackEnemy()
         totalDefense += troop->getDefense();
     }
 
-    // Compare with the enemy's attack and defense
     std::cout << "Your troops' total attack: " << totalAttack << std::endl;
     std::cout << "Your troops' total defense: " << totalDefense << std::endl;
     std::cout << "Enemy's attack: " << enemy->getAttack() << std::endl;
@@ -543,6 +538,7 @@ void GiryuGame::attackEnemy()
     else
     {
         std::cout << "Defeat! The enemy was too strong for your troops." << std::endl;
+        exit();
     }
 }
 

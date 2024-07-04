@@ -3,9 +3,10 @@
 
 #include "BaseException.hpp"
 
-class InvalidActionException : public BaseException {
+class InvalidActionException : public BaseException
+{
 public:
-    explicit InvalidActionException(const std::string& message);
+    explicit InvalidActionException(const std::string &message);
 };
 
-#endif // INVALID_ACTION_EXCEPTION_HPP
+#endif

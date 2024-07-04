@@ -6,13 +6,11 @@ class Building
 public:
     Building(int woodCost, int ironCost, int clayCost, int cropCost);
 
-    // Getter methods
     int getWoodCost() const;
     int getIronCost() const;
     int getClayCost() const;
     int getCropCost() const;
 
-    // Setter methods
     void setWoodCost(int woodCost);
     void setIronCost(int ironCost);
     void setClayCost(int clayCost);
@@ -27,4 +25,4 @@ private:
     int cropCost;
 };
 
-#endif // BUILDING_HPP
+#endif
